@@ -33,12 +33,12 @@ function set_globals() {
   #================== KLIPPER ===================#
   KLIPPY_ENV="${HOME}/klippy-env"
   KLIPPER_DIR="${HOME}/klipper"
-  KLIPPER_REPO="https://github.com/Klipper3d/klipper.git"
+  KLIPPER_REPO="https://github.com/Mingda-tech/klipper.git"
 
   #================= MOONRAKER ==================#
   MOONRAKER_ENV="${HOME}/moonraker-env"
   MOONRAKER_DIR="${HOME}/moonraker"
-  MOONRAKER_REPO="https://github.com/Arksine/moonraker.git"
+  MOONRAKER_REPO="https://github.com/Mingda-tech/moonraker.git"
 
   #================= MAINSAIL ===================#
   MAINSAIL_DIR="${HOME}/mainsail"
@@ -49,7 +49,7 @@ function set_globals() {
   #=============== KLIPPERSCREEN ================#
   KLIPPERSCREEN_ENV="${HOME}/.KlipperScreen-env"
   KLIPPERSCREEN_DIR="${HOME}/KlipperScreen"
-  KLIPPERSCREEN_REPO="https://github.com/jordanruthe/KlipperScreen.git"
+  KLIPPERSCREEN_REPO="https://github.com/Mingda-tech/KlipperScreen.git"
 
   #========== MOONRAKER-TELEGRAM-BOT ============#
   TELEGRAM_BOT_ENV="${HOME}/moonraker-telegram-bot-env"

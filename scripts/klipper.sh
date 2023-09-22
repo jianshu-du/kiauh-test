@@ -252,8 +252,8 @@ function clone_klipper() {
   local repo=${1} branch=${2}
 
   [[ -z ${repo} ]] && repo="${KLIPPER_REPO}"
-  repo=$(echo "${repo}" | sed -r "s/^(http|https):\/\/github\.com\///i; s/\.git$//")
-  repo="https://github.com/${repo}"
+  # repo=$(echo "${repo}" | sed -r "s/^(http|https):\/\/github\.com\///i; s/\.git$//")
+  # repo="https://github.com/${repo}"
 
   [[ -z ${branch} ]] && branch="master"
 

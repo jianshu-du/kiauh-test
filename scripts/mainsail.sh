@@ -87,7 +87,7 @@ function install_mainsail_macros() {
     echo -e "| have Mainsail fully functional and working.           |"
     blank_line
     echo -e "| The recommended macros for Mainsail can be seen here: |"
-    echo -e "| https://github.com/mainsail-crew/mainsail-config      |"
+    echo -e "| https://github.com/Mingda-tech/mainsail-config      |"
     blank_line
     echo -e "| If you already use these macros skip this step.       |"
     echo -e "| Otherwise you should consider to answer with 'yes' to |"
@@ -112,7 +112,7 @@ function install_mainsail_macros() {
 function download_mainsail_macros() {
   local ms_cfg_repo path configs regex line gcode_dir
 
-  ms_cfg_repo="https://github.com/mainsail-crew/mainsail-config.git"
+  ms_cfg_repo="https://github.com/Mingda-tech/mainsail-config.git"
   regex="${HOME//\//\\/}\/([A-Za-z0-9_]+)\/config\/printer\.cfg"
   configs=$(find "${HOME}" -maxdepth 3 -regextype posix-extended -regex "${regex}" | sort)
 
@@ -341,7 +341,7 @@ function get_remote_mainsail_version() {
   [[ ! $(dpkg-query -f'${Status}' --show curl 2>/dev/null) = *\ installed ]] && return
 
   local tags
-  tags=$(curl -s "https://api.github.com/repos/mainsail-crew/mainsail/tags" | grep "name" | cut -d'"' -f4)
+  tags=$(curl -s "https://api.github.com/repos/Mingda-tech/mainsail/tags" | grep "name" | cut -d'"' -f4)
   echo "${tags}" | head -1
 }
 
@@ -380,7 +380,7 @@ function print_theme_list() {
 
 function ms_theme_installer_menu() {
   local theme_list theme_author theme_repo theme_name theme_note theme_url
-  local theme_csv_url="https://raw.githubusercontent.com/mainsail-crew/gb-docs/main/_data/themes.csv"
+  local theme_csv_url="https://raw.githubusercontent.com/Mingda-tech/gb-docs/main/_data/themes.csv"
   theme_list=$(curl -s -L "${theme_csv_url}")
 
   top_border
@@ -536,16 +536,16 @@ function get_mainsail_download_url() {
   local releases_by_tag tags tag unstable_url url
 
   ### latest stable download url
-  url="https://github.com/mainsail-crew/mainsail/releases/latest/download/mainsail.zip"
+  url="https://github.com/Mingda-tech/mainsail/releases/latest/download/mainsail.zip"
 
   read_kiauh_ini "${FUNCNAME[0]}"
   if [[ ${mainsail_install_unstable} == "true" ]]; then
-    releases_by_tag="https://api.github.com/repos/mainsail-crew/mainsail/tags"
+    releases_by_tag="https://api.github.com/repos/Mingda-tech/mainsail/tags"
     tags=$(curl -s "${releases_by_tag}" | grep "name" | cut -d'"' -f4)
     tag=$(echo "${tags}" | head -1)
 
     ### latest unstable download url including pre-releases (alpha, beta, rc)
-    unstable_url="https://github.com/mainsail-crew/mainsail/releases/download/${tag}/mainsail.zip"
+    unstable_url="https://github.com/Mingda-tech/mainsail/releases/download/${tag}/mainsail.zip"
 
     if [[ ${unstable_url} == *"download//"* ]]; then
       warn_msg "Download URL broken! Falling back to URL of latest stable release!"
@@ -642,7 +642,7 @@ function patch_mainsail_update_manager() {
 [update_manager mainsail]
 type: web
 channel: stable
-repo: mainsail-crew/mainsail
+repo: Mingda-tech/mainsail
 path: ~/mainsail
 MOONRAKER_CONF
 
@@ -675,7 +675,7 @@ function patch_mainsail_config_update_manager() {
 type: git_repo
 primary_branch: master
 path: ~/mainsail-config
-origin: https://github.com/mainsail-crew/mainsail-config.git
+origin: https://github.com/Mingda-tech/mainsail-config.git
 managed_services: klipper
 MOONRAKER_CONF
 
